@@ -21,6 +21,7 @@ This assignment focuses on building a RESTful API using Express.js, implementing
 4. Start the server:
    ```
    1. install nodemon for server persistent
+   use pnpm add nodemon
    npm start
    ```
    The server will run on `http://localhost:3000` by default.
