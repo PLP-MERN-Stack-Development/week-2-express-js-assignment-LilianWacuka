@@ -3,6 +3,98 @@
 
 This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
 
+## Instructions To Run Assignment
+. Clone the repository:
+   ```
+   git clone <https://github.com/PLP-MERN-Stack-Development/week-2-express-js-assignment-LilianWacuka.git>
+   cd <your-project-folder>
+   ```
+
+2. Install dependencies:
+   ```
+   npm install 
+   npm init -y
+   ```
+
+3. Create a `.env` file based on `.env.example` and fill in your values.
+
+4. Start the server:
+   ```
+   1. install nodemon for server persistent
+   npm start
+   ```
+   The server will run on `http://localhost:3000` by default.
+
+
+## .env file
+```
+PORT=3000
+MONGO_URI=mongodb://localhost:YOUR URL
+API_KEY=.....your/APIKEY
+```
+## Documentation of API endpoints
+### Authentication
+All endpoints (except `/`) require an API key in the header:
+```
+x-api-key: ''''
+```
+
+### Product Routes
+
+| Method | Endpoint                   | Description                        |
+|--------|----------------------------|------------------------------------|
+| GET    | `/api/products`            | List all products (supports filtering and pagination) |
+| GET    | `/api/products/:id`        | Get a product by ID                |
+| POST   | `/api/products`            | Create a new product               |
+| PUT    | `/api/products/:id`        | Update a product                   |
+| DELETE | `/api/products/:id`        | Delete a product                   |
+| GET    | `/api/products/search`     | Search products by name            |
+| GET    | `/api/products/stats`      | Get product count by category      |
+
+#### Query Parameters
+
+- `category` (GET `/api/products`): Filter by category  
+  Example: `/api/products?category=electronics`
+- `page` and `limit` (GET `/api/products`): Pagination  
+  Example: `/api/products?page=2&limit=5`
+- `name` (GET `/api/products/search`): Search by name  
+  Example: `/api/products/search?name=mouse`
+
+## 📦 Example Requests
+
+### Create a Product
+
+**POST** `/api/products`
+```json
+Headers:
+  x-api-key: your-api-key
+  Content-Type: application/json
+
+Body:
+{
+  "name": "Laptop",
+  "description": "High-performance laptop with 16GB RAM",
+  "price": 1200,
+  "category": "electronics",
+  "inStock": true
+}
+```
+
+### Get Products by Category
+
+**GET** `/api/products?category=electronics`
+
+### Search Products by Name
+
+**GET** `/api/products/search?name=mouse`
+### Get Product Statistics
+
+**GET** `/api/products/stats`
+
+---
+
+---
+
 ## Assignment Overview
 
 You will:
